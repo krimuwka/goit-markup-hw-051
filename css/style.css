@@ -277,7 +277,58 @@ color: #FFFFFF;}
   }
   
   /*===hero studio end===*/
-  
+  /* ===modal window=== */
+.backdrop {
+  position: fixed;
+  top: 0%;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--modal-backdrop);
+  z-index: 100;
+  transition: opacity 250ms var(--timing-cubic), visibility 250ms var(--timing-cubic);
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 528px;
+  height: 580px;
+  background-color: var(--dark-background-text-color);
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: transform 250ms var(--timing-cubic);
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.3);
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* ===modal window end=== */
   /*===features studio===*/
   
 
