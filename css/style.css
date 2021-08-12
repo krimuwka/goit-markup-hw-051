@@ -192,22 +192,42 @@ color: #FFFFFF;}
   }
   
   .nav-link {
+    position: relative;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--heading-color);
+    transition: color 250ms var(--timing-cubic);
   }
   
   .nav-link:hover,
-  .nav-link:focus,
-  .mail-link:hover,
-  .mail-link:focus,
-  .tel-link:hover,
-  .tel-link:focus {
-    color: var(--accent-color);
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
+.nav-link:focus,
+.mail-link:hover,
+.mail-link:focus {
+  color: var(--accent-color);
+  outline: none;
+}
+.mail-link, .tel-link {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  color: var(--main-text-color);
+  transition: color 250ms var(--timing-cubic);
+}
+.link.current::after {
+  position: absolute;
+  bottom: -33px;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+}
   .mail-link:hover .mail-icon{fill: var(--accent-color);}
   .nav-item .link.current {
     color: var(--accent-color);
@@ -259,15 +279,21 @@ color: #FFFFFF;}
     color: var(--dark-background-text-color);
   }
   .modal-button {
-    font-family: inherit;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.87;
-    text-align: center;
-    letter-spacing: 0.06em;
-    color: var(--dark-background-text-color);
-    background-color: var(--accent-color);
-    cursor: pointer;
+    min-width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 32px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: var(--dark-background-text-color);
+  background-color: var(--accent-color);
+  cursor: pointer;
+  transition: background-color 250ms var(--timing-cubic);
   }
   
   .modal-button:hover,
@@ -490,6 +516,8 @@ color: #FFFFFF;}
   color: var(--heading-color);
   background-color: var(--accent-background-color);
   cursor: pointer;
+  transition: color 250ms var(--timing-cubic), background-color 250ms var(--timing-cubic),
+    box-shadow 250ms var(--timing-cubic);
 }
 .current-btn{color: var(--dark-background-text-color);
   background-color: var(--accent-color);}
@@ -594,21 +622,23 @@ color: #FFFFFF;}
     border-radius: 4px;
     width: 170px;
     height: 92px;
+    transition: border 250ms var(--timing-cubic);
   }
   
   .client-icon {
     fill: var(--icon-color);
+    transition: fill 250ms var(--timing-cubic);
   }
   .client-link:hover,
   .client-link:focus {
     border: 1px solid var(--accent-color);
-    outline: none;
+    fill: var(--icon-color);
   }
   
   .client-link:hover .client-icon,
   .client-link:focus .client-icon {
     fill: var(--accent-color);
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
   }
   /*===portfolio examples===*/
 
@@ -661,12 +691,16 @@ color: #FFFFFF;}
   .footer-container{display: flex;align-items: center;}
   .address-link {
     color: var(--dark-background-text-color);
+    transition: color 250ms var(--timing-cubic);
   }
   
   .address-mail-link,
   .address-tel-link {
     color: var(--footer-contacts-color);
+    transition: color 250ms var(--timing-cubic);
   }
+  
+
   
   .address-link:hover,
   .address-link:focus,
@@ -674,7 +708,7 @@ color: #FFFFFF;}
   .address-mail-link:focus,
   .address-tel-link:hover,
   .address-tel-link:focus {
-    color: var(--accent-color);transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--accent-color);
   }
   .address-list-item:not(:last-child) {
     margin-bottom: 9px;
@@ -711,22 +745,23 @@ address {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  transition: background-color 250ms var(--timing-cubic);
 }
 
 .social-link:hover,
 .social-link:focus {
   background-color: var(--accent-color);
-  outline: none;transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover .social-icon,
 .social-link:focus .social-icon {
   fill: var(--dark-background-text-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+ 
 }
 
 .social-icon {
-  fill: var(--icon-color);
+  fill: var(--icon-color);transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
